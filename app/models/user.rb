@@ -6,6 +6,8 @@ class User < ApplicationRecord
   validates_length_of :password, minimum: 8, maximum: 16
   validate :strong_password_checker
 
+  has_many :tasks, dependent: :destroy
+
   private
 
   def strong_password_checker

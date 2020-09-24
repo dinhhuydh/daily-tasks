@@ -1,0 +1,11 @@
+<h1>Tasks</h1>
+
+<ul>
+  <%= @tasks.each do |task| %>
+    <li>
+      <%= task.description %>
+      <span><%= task.urgent %></span>
+      <span><%= task.important %></span>
+    </li>
+  <% end %>
+</ul>

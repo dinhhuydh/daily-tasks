@@ -4,8 +4,10 @@
   <%= @tasks.each do |task| %>
     <li>
       <%= task.description %>
-      <span><%= task.urgent %></span>
-      <span><%= task.important %></span>
+      <span><%= display_urgent_label task.urgent %></span>
+      <span><%= display_important_label task.important %></span>
+
+      <span><%= task_action(task) %></span>
     </li>
   <% end %>
 </ul>

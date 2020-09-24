@@ -1,0 +1,7 @@
+<li>
+  <%= task.description %>
+  <span><%= display_urgent_label task.urgent %></span>
+  <span><%= display_important_label task.important %></span>
+
+  <span><%= task_action(task) %></span>
+</li>

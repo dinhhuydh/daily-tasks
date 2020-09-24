@@ -1,13 +1,24 @@
 <h1>Tasks</h1>
 
-<ul>
-  <%= @tasks.each do |task| %>
-    <li>
-      <%= task.description %>
-      <span><%= display_urgent_label task.urgent %></span>
-      <span><%= display_important_label task.important %></span>
-
-      <span><%= task_action(task) %></span>
-    </li>
+<ul id='task-list'>
+  <% @tasks.each do |task| %>
+    <%= render(task, task: task) %>
   <% end %>
 </ul>
+
+<% task = Task.new(important: false, urgent: false) %>
+<%= form_for task, remote: true do |f| %>
+  <%= f.label :description, 'Enter your task' %>
+  <%= f.text_field :description %>
+  <%= f.label :important_0, 'Not important' %>
+  <%= f.radio_button :important, "0", checked: true  %>
+  <%= f.label :important_1, 'Important' %>
+  <%= f.radio_button :important, "1" %>
+
+  <%= f.label :not_urgent %>
+  <%= f.radio_button :urgent, "0", checked: true %>
+  <%= f.label :urgent %>
+  <%= f.radio_button :urgent, "1" %>
+
+  <%= f.submit 'Add' %>
+<% end %>

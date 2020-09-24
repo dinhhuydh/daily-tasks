@@ -1,0 +1,5 @@
+$('#task_description').val('');
+$('#task_important_0').click();
+$('#task_urgent_0').click();
+
+$('#task-list').append('<%= j(render 'task', task: @task) %>')

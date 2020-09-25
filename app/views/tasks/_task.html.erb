@@ -1,8 +1,8 @@
-<li id='task-<%= task.id %>'>
+<li id='task-<%= task.id %>' class='list-group-item'>
   <%= task.description %>
-  <span><%= display_urgent_label task.urgent %></span>
-  <span><%= display_important_label task.important %></span>
+  <span class='badge <%= important_css_class(task.important) %>'><%= display_important_label task.important %></span>
+  <span class='badge <%= urgent_css_class(task.urgent) %>'><%= display_urgent_label task.urgent %></span>
 
-  <span><%= task_action(task) %></span>
-  <%= link_to 'x', task_path(task), remote: true, method: :delete, 'data-confirm' => 'Are you sure?' %>
+  <%= task_action(task) %>
+  <%= link_to 'x', task_path(task), remote: true, method: :delete, 'data-confirm' => 'Are you sure?', class: 'float-right' %>
 </li>

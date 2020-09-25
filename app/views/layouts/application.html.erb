@@ -9,7 +9,10 @@
   </head>
 
   <body>
-    <%= notice %></p>
-    <%= yield %>
+    <%= render 'layouts/topbar' %>
+    <div class='container'>
+      <%= notice %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>

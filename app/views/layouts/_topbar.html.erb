@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <%= link_to 'My Tasks', root_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <% if current_user %>
+        <li class="nav-item">
+          <%= link_to 'Sign out', sessions_path, class: 'nav-link', method: :delete %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

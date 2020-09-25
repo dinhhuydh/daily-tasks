@@ -1,31 +1,37 @@
-<h1>Tasks</h1>
-
-<% display_all = display_closed_tasks_params(params[:all]) %>
-<%= link_to tasks_path(all: display_all) do %>
-  <%= check_box_tag 'show_closed_tasks', !display_all, !display_all %>
-<% end %>
-<%= label_tag 'show_closed_tasks', 'show closed tasks' %>
-
-<ul id='task-list'>
+<ul id='task-list' class='list-group mb-4'>
+  <li class='list-group-item active'>Task
+    <% display_all = display_closed_tasks_params(params[:all]) %>
+    <%= label_tag 'show_closed_tasks', 'show closed tasks', class: 'float-right ml-2' %>
+    <%= link_to tasks_path(all: display_all), class: 'float-right' do %>
+      <%= check_box_tag 'show_closed_tasks', !display_all, !display_all %>
+    <% end %>
+  </li>
   <% @tasks.each do |task| %>
-    <%= render(task, task: task) %>
+    <%= render('task', task: task) %>
   <% end %>
 </ul>
 
 <% task = Task.new(important: false, urgent: false) %>
-<%= form_for task, remote: true do |f| %>
-  <%= f.label :description, 'Enter your task' %>
-  <%= f.text_field :description %>
-  <%= f.label :important_0, 'Not important' %>
-  <%= f.radio_button :important, "0", checked: true  %>
-  <%= f.label :important_1, 'Important' %>
-  <%= f.radio_button :important, "1" %>
+<%= form_for task, remote: true, class: 'form' do |f| %>
+  <div class='form-group'>
+    <%= f.label :description, 'Enter your task' %>
+    <%= f.text_field :description %>
+  </div>
 
-  <%= f.label :not_urgent %>
-  <%= f.radio_button :urgent, "0", checked: true %>
-  <%= f.label :urgent %>
-  <%= f.radio_button :urgent, "1" %>
+  <div class='form-group'>
+    <%= f.label :important_0, 'Not important' %>
+    <%= f.radio_button :important, "0", checked: true  %>
+    <%= f.label :important_1, 'Important' %>
+    <%= f.radio_button :important, "1" %>
+  </div>
 
+  <div class='form-group'>
+    <%= f.label :not_urgent %>
+    <%= f.radio_button :urgent, "0", checked: true %>
+    <%= f.label :urgent %>
+    <%= f.radio_button :urgent, "1" %>
+  </div>
 
-  <%= f.submit 'Add' %>
+  <%= f.submit 'Add', class: 'btn btn-primary' %>
+
 <% end %>

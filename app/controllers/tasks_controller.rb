@@ -3,7 +3,11 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:update, :destroy]
 
   def index
-    @tasks = current_user.tasks
+    if params[:all].present?
+      @tasks = current_user.tasks
+    else
+      @tasks = current_user.tasks.not_closed
+    end
   end
 
   def create

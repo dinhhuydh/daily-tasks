@@ -14,4 +14,8 @@ module TasksHelper
       link_to('Done', task_path(task, status: 'done'), remote: true, method: :put)
     end
   end
+
+  def display_closed_tasks_params(all_param)
+    all_param.present? ? nil : true
+  end
 end

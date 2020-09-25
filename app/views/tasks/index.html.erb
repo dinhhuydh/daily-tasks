@@ -1,5 +1,11 @@
 <h1>Tasks</h1>
 
+<% display_all = display_closed_tasks_params(params[:all]) %>
+<%= link_to tasks_path(all: display_all) do %>
+  <%= check_box_tag 'show_closed_tasks', !display_all, !display_all %>
+<% end %>
+<%= label_tag 'show_closed_tasks', 'show closed tasks' %>
+
 <ul id='task-list'>
   <% @tasks.each do |task| %>
     <%= render(task, task: task) %>
@@ -19,6 +25,7 @@
   <%= f.radio_button :urgent, "0", checked: true %>
   <%= f.label :urgent %>
   <%= f.radio_button :urgent, "1" %>
+
 
   <%= f.submit 'Add' %>
 <% end %>

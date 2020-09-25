@@ -14,13 +14,13 @@ RSpec.describe TasksHelper, type: :helper do
   describe '#display_urgent_label' do
     context 'when it is urgent' do
       it 'renders urgent text' do
-        expect(helper.display_urgent_label(true)).to eq('urgent')
+        expect(helper.display_urgent_label(true)).to eq('Urgent')
       end
     end
 
     context 'when it is not urgent' do
       it 'renders urgent text' do
-        expect(helper.display_urgent_label(false)).to eq('not urgent')
+        expect(helper.display_urgent_label(false)).to eq('Not Urgent')
       end
     end
   end
@@ -28,13 +28,13 @@ RSpec.describe TasksHelper, type: :helper do
   describe '#display_important_label' do
     context 'when it is important' do
       it 'renders important text' do
-        expect(helper.display_important_label(true)).to eq('important')
+        expect(helper.display_important_label(true)).to eq('Important')
       end
     end
 
     context 'when it is not important' do
-      it 'renders important text' do
-        expect(helper.display_important_label(false)).to eq('not important')
+      it 'renders urgent text' do
+        expect(helper.display_urgent_label(false)).to eq('Not Urgent')
       end
     end
 

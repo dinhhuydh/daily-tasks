@@ -1,10 +1,10 @@
 module TasksHelper
   def display_urgent_label(urgent)
-    urgent ? 'urgent' : 'not urgent'
+    urgent ? 'Urgent' : 'Not Urgent'
   end
 
   def display_important_label(important)
-    important ? 'important' : 'not important'
+    important ? 'Important' : 'Not Important'
   end
 
   def task_action(task)

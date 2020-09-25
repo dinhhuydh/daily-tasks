@@ -12,7 +12,7 @@ RSpec.feature "Sign up ", :type => :feature do
     fill_in 'Password', with: 'StrongPasword123'
     fill_in 'Password confirmation', with: 'StrongPasword123'
 
-    click_on 'Create User'
+    click_on 'Submit'
 
     expect(page).to have_text('User was successfully created.')
   end

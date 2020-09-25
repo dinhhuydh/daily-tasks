@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
+* Demo site
+https://mini-daily-tasks.herokuapp.com/
 
 * Ruby version
 2.7.1

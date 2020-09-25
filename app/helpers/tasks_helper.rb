@@ -9,9 +9,9 @@ module TasksHelper
 
   def task_action(task)
     if task.open?
-      link_to('Start', task_path(task, status: 'start'), remote: true)
+      link_to('Start', task_path(task, status: 'start'), remote: true, method: :put)
     elsif task.in_progress?
-      link_to('Done', task_path(task, status: 'done'), remote: true)
+      link_to('Done', task_path(task, status: 'done'), remote: true, method: :put)
     end
   end
 end

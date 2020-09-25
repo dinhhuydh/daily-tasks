@@ -1,7 +1,8 @@
-<li>
+<li id='task-<%= task.id %>'>
   <%= task.description %>
   <span><%= display_urgent_label task.urgent %></span>
   <span><%= display_important_label task.important %></span>
 
   <span><%= task_action(task) %></span>
+  <%= link_to 'x', task_path(task), remote: true, method: :delete, 'data-confirm' => 'Are you sure?' %>
 </li>

@@ -1,0 +1,9 @@
+<% if @task.closed? %>
+  if (!$('#show_closed_tasks').prop('checked')) {
+    $('#task-<%= @task.id %>').remove();
+  } else {
+    $('#task-<%= @task.id %>').replaceWith('<%= j(render 'task', task: @task) %>');
+  }
+<% else %>
+  $('#task-<%= @task.id %>').replaceWith('<%= j(render 'task', task: @task) %>');
+<% end %>

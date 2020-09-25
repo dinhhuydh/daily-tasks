@@ -3,13 +3,7 @@ require "rails_helper"
 RSpec.feature "Add New Task", :type => :feature, js: true do
   scenario "User add a new task" do
     user = FactoryBot.create(:user)
-
-    user_sign_in
-    visit 'sessions/new'
-    fill_in 'Username', with: user.username
-    fill_in 'Password', with: 'Abc123Abc'
-
-    click_on 'Sign in'
+    user_sign_in(user)
 
     visit tasks_path
     expect(page).to have_button('Add')

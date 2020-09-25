@@ -7,11 +7,7 @@ RSpec.feature "Task list", :type => :feature do
     task_1 = FactoryBot.create(:task, user: user)
     task_2 = FactoryBot.create(:task, user: other_user)
 
-    visit 'sessions/new'
-    fill_in 'Username', with: user.username
-    fill_in 'Password', with: 'Abc123Abc'
-
-    click_on 'Sign in'
+    user_sign_in(user)
 
     visit tasks_path
     expect(page).to have_content(task_1.description)

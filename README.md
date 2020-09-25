@@ -1,31 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Mini daily tasks
 
-Things you may want to cover:
-
-* Demo site
+## Demo site
 https://mini-daily-tasks.herokuapp.com/
 
-* Ruby version
+## Ruby version
 2.7.1
 
-* Database creation
+## Rails version
+5.1.7
 
-* Database initialization
-rake db:seed
 
-* How to run the test suite
+## Database creation
+
+## Database initialization
+
+## How to run the test suite
 - Install geckodriver for Firefox driver
 - Install node version > 6.9
-rspec
+- run `rspec`
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* Development setup
+## Development setup
+- Configure postgres credentials in database.yml
 - rake db:create
 - rake db:migrate
-- rake db:seed
+- run `rails s` and access localhost:3000
+
+## Docker
+- Run `docker-compose build`
+- Run `docker-compose up web`
+- Run `docker-compose exec web rake db:create db:migrate` to set up database
+- Access `localhost:3000`
+
+## TODO
+- Setup test environment on docker. It misses shouda-matchers gem in test enviroment on Docker which is in development environment.

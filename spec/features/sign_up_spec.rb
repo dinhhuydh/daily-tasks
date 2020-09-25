@@ -14,6 +14,6 @@ RSpec.feature "Sign up ", :type => :feature do
 
     click_on 'Create User'
 
-    expect(page).to have_text('New User')
+    expect(page).to have_text('User was successfully created.')
   end
 end
